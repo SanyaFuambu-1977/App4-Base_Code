@@ -10,7 +10,7 @@ Tim Riedel
 Sanya Fuambu
 	<!-- added my name to the list of authors -->
  
-Further Information:
+<!--Further Information:
 http://diystream.cns.utexas.edu/
 
 Research Educator:
@@ -118,7 +118,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   alt="Woman sneezing into a tissue, representing cold or allergy symptoms"
   class="main-image"
 />
-	
+	<!-- added the url for the image I wanted to include -->
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
@@ -148,7 +148,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Do you have a feel body aches?</p>
+		<p>Do you have body aches?</p>
 		<a href="#three" onclick="coldAdd()" class="w3-btn w3-black w3-round">Yes</a>
 		 <!-- Fever suggests a cold so saying yes to this question would indicate that this symptom is more likely caused by a cold -->
 		<a href="#three" onclick="allergyAdd()" class="w3-btn w3-black w3-round">No</a>
@@ -162,9 +162,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Did your symptoms start soon afer being exposed to cold weather?</p>
+		<p>Did your symptoms start soon after being exposed to cold weather?</p>
 		<a href="#four" onclick="coldAdd()" class="w3-btn w3-black w3-round">Yes</a>
-		 <!-- Sore throat suggest a cold so saying yes to this question would indicate that this symptom is more likely caused by a cold -->
+		 <!-- symptoms starting after being in a cold enviroment suggest a cold so saying yes to this question would indicate that this symptom is more likely caused by a cold -->
 		<a href="#four" onclick="allergyAdd()" class="w3-btn w3-black w3-round">No</a>
 		 <!-- saying no to this question would indicate that this symptom is more likely caused by allergies -->
 	 </div><!-- question 4 after question 3 -->
@@ -179,7 +179,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<p>Have your symptoms been lingering for a long time?</p>
 		<!-- allergies often last longer as this is a good way of differentiate -->
 		<a href="#results" onclick="allergyAdd()" class="w3-btn w3-black w3-round">Yes</a>
-		 <!-- saying yes to this question would indicate that this symptom is more likely caused by allergies -->
+		 <!-- saying yes to this question would indicate that this symptom is more likely caused by allergies because they linger -->
 		<a href="#results" onclick="coldAdd()" class="w3-btn w3-black w3-round">No</a>
 		 <!-- saying no to this question would indicate that this symptom is more likely caused by a cold -->
 	 </div><!-- all questions answered now results -->
