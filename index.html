@@ -223,11 +223,16 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 }
 </style>
 	
- display: block;
-  margin: 1rem auto;
-  height: auto;
-  max-width: 250px; <!-- adjusting images so its not as zoomed in-->
-} 
+/* Make images resize nicely on different screens */
+  img, object {
+    max-height: 90%;
+    max-width: 90%;
+  }.main-image {
+    display: block;
+    margin: 1rem auto;
+    height: auto;
+    max-width: 250px; <!-- zooming image out -->
+  }
 <body>
 	
 	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
