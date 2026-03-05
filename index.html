@@ -7,7 +7,8 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Sanya Fuambu
+	<!-- added my name to the list of authors -->
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -17,10 +18,13 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
- 
+This app asks 4 question about the symptoms a person is feeling and then compares how many answers point toward "cold" vs. "allergies"
+	
 Known Issues:
-blah, blah, blah, blah
+-Does not provide actual medical advice or diagnosis.
+-Limited to yes or no answers.
+-Unable to make medical diagonsis.
+-Small number of questions asked.
 Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
 
 References:
@@ -29,7 +33,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 -->
 	
 <head> 
-	<title>Hello World</title>  
+	<title>Cold vs Allergy </title>  
+	<!-- changed title to better reflect the app-->
 ]	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" href="w3.css">
@@ -37,8 +42,153 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </head> 
 
 <script>
+	// The following code lets you know when the file was last modified.
+// This will help you know if you are looking at the new version of the file or if there is a delay on GitHub.
+       var docMod = document.lastModified;
+       alert("This file last modified  " + docMod);
+       console.log("This file last modified  " + docMod);
+// If you find the alert box annoying, comment out that line and timestamp will still show up in the debugging console
+
+<!-- added the last modified script -->
+<!-- counts how many points go towards allergies-->
 
 	//YOUR JAVASCRIPT GOES HERE
+	
+	  var allergy_count = 0;
+        var cold_count = 0;
+
+
+        function allergyAdd(){
+            allergy_count = allergy_count + 1;
+		alert(allergy_count);
+
+        }
+
+        function coldAdd(){
+            cold_count = cold_count + 1;
+        }
+	
+	function showResults(){
+	var total = allergy_count + cold_count;
+	
+	var allergyPercent = (allergy_count / total) * 100;
+	var coldPercent = (cold_count / total) * 100;
+
+	var resultText= document.getElementById("results").innerHTML =
+	"Allergy: " + allergyPercent + "%<br>" +
+	"Cold: " + coldPercent + "%"; 
+	}
+  </script>
+<!-- The equation to get the probability of if its a cold or allergies -->
+
+
+<style>	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Cold or Allergies?</h1>
+</div>
+	
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+</div> <!-- introduction to the code -->
+	
+<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+	
+    <div id="content" class="w3-container">
+	<p>Were your symptoms a reaction to a specific trigger like pollen?</p>   
+		<!-- changed the question to another question to better detect if the cause is from an allergy -->
+	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
+		 <!-- saying yes to this question would indicate that this symptom is more likely caused by allergies -->
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+		 <!-- saying no to this question would indicate that this symptom is more likely caused by a cold -->
+ </div><!-- question 2 following question 1 -->
+
+</div>
+
+<div class="page" id="two">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you have a feel body aches?</p>
+		<a href="#three" onclick="coldAdd()" class="w3-btn w3-black w3-round">Yes</a>
+		 <!-- Fever suggests a cold so saying yes to this question would indicate that this symptom is more likely caused by a cold -->
+		<a href="#three" onclick="allergyAdd()" class="w3-btn w3-black w3-round">No</a>
+		 <!-- Fever suggest a cold so saying no to this question would indicate that this symptom is more likely caused by allergies -->
+	</div><!-- question 3 after question 2 -->
+</div>	
+
+<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Did your symptoms start soon afer being exposed to cold weather?</p>
+		<a href="#four" onclick="coldAdd()" class="w3-btn w3-black w3-round">Yes</a>
+		 <!-- Sore throat suggest a cold so saying yes to this question would indicate that this symptom is more likely caused by a cold -->
+		<a href="#four" onclick="allergyAdd()" class="w3-btn w3-black w3-round">No</a>
+		 <!-- saying no to this question would indicate that this symptom is more likely caused by allergies -->
+	 </div><!-- question 4 after question 3 -->
+</div>	
+	
+<div class="page" id="four">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Have your symptoms been lingering for a long time?</p>
+		<!-- allergies often last longer as this is a good way of differentiate -->
+		<a href="#results" onclick="allergyAdd()" class="w3-btn w3-black w3-round">Yes</a>
+		 <!-- saying yes to this question would indicate that this symptom is more likely caused by allergies -->
+		<a href="#results" onclick="coldAdd()" class="w3-btn w3-black w3-round">No</a>
+		 <!-- saying no to this question would indicate that this symptom is more likely caused by a cold -->
+	 </div><!-- all questions answered now results -->
+</div>	
+
+<div class="page" id="results">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Your results</h1>
+		<!-- results that are calculated go here -->
+		<p id="resultsText"></p>
+		<!-- calculates and displays results -->
+		<button onclick="showResults()" class="w3-btn w3-green w3-round"> Show Results</button>
+		
+	 </div><!-- /content -->
+</div> 
+	
 
 </script>	
 
